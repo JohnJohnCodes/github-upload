@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" href="/Intake.css">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kamalbe Spanish School Intake Form</title>
+</head>
+<!--Show/Hide based on Homestay ="Yes"-->
+<script>
+  function ShowHideArrival(abroad) {
+    var arrivalinfo = document.getElementById("arrivalinfo");
+    arrivalinfo.style.display = abroad.checked ? "block" : "none";
+  }
+
+  function ShowHideDiv(homestayyes) {
+    var specialneeds = document.getElementById("specialneeds");
+    specialneeds.style.display = homestayyes.checked ? "block" : "none";
+  }
+
+  function ShowHideArticle(spanish) {
+    var typeofspanish = document.getElementById("typeofspanish");
+    typeofspanish.style.display = spanish.checked ? "block" : "none";
+  }
+
+  function ShowHideSection(volunteer) {
+    var volunteers = document.getElementById("volunteers");
+    volunteers.style.display = volunteer.checked ? "block" : "none";
+  }
+
+  function DisplayMsg() {
+            var newLine = "\r\n"
+            var msg = "Thank you for completing the form. We will see you very soon."
+            msg += newLine;
+            msg += "*****************************************************************";
+            msg += newLine;
+            msg += "Gracias por completar el formulario. Nos vemos muy pronto.";
+            alert(msg);
+         }
+</script>
+
+
+<body>
+  <header>
+    <h1 id="title">Kamalbe Spanish School Registration Form</h1>
+    <p id="description">Thank you for your interest in learning and/or volunteering with us! To help us prepare for your arrival, please complete the form below.</p>
+  </header>
+  <form id="survey-form" action="#" method="post">
+    <span class="nota">Este formulario está en ingles. Sin embargo si pasa el cursor sobre cada enunciado, verá la traducción. </span>
+    <fieldset>
+      <legend title="Información del Estudiante">Student Information:</legend>
+      <section class="biographical">
+        <label for="name" id="name-label" title="Nombre">First Name:</label>
+        <input type="text" id="name" placeholder="Name" required>
+        <label for="lastname" title="Apellido">Last Name:</label>
+        <input type="text" id="lastname" placeholder="Surname" required>
+        <label for="profession" title="Profesión">Profession:</label>
+        <input type="text" id="profession" placeholder="Job Title or Profession">
+        <label for="nationality" title="Nacionalidad">Nationality:</label>
+        <input type="text" id="nationality" placeholder="Nationality or Citizenship">
+        <!--<label for="age">Age:</label>
+        <input type="number" id="age" placeholder="Edad">-->
+        <label for="birthday" title="Fecha de Nacimiento">Birthdate:</label>
+        <input type="date" id="birthday" name="birthday">
+        <label for="university" title="Enumere la afiliación de su colegio o universidad si actualmente es estudiante, alumno o facultad de una institución.">Please list your college or university affliation if you are a current student, alumni, or faculty of an institution.</label>
+        <input type="text" id="university" placeholder="Name of College or University">
+        <label for="program" title="¿En qué programa está interesado?">Which program are you interested in?</label>
+        <input type="checkbox" name="program" id="student" value="student"><label for="student" title="Estudiante">Student</label>
+        <input type="checkbox" name="program" id="volunteer" value="volunteer" onclick="ShowHideSection(this)"><label for="volunteer" title="Voluntario">Volunteer</label>
+        <p class="touristcheck" title="Si se encuentra fuera de Guatemala, indíquelo.">If you are currently outside of Guatemala please indicate.
+          <input type="checkbox" name="program" id="abroad" value="abroad" onclick="ShowHideArrival(this)"></p>
+      </section>
+
+      <div id="arrivalinfo">
+        <span class="textseparator" title="Llegada">Arrival</span>
+        <label for="arrivalstartdate" title="Indique su fecha de llegada anticipada a Guatemala.">Please provide your anticipated arrival date in Guatemala:</label>
+        <span class="note" title="Si no ha confirmado sus planes de viaje, utilice una fecha aproximada.">If you have not confirmed your travel plans, please use an approximate date.</span>
+        <input type="date" id="arrivalstartdate" name="arrivalstartdate">
+        <label for="number" id="number-label" title="¿Cuántas semanas planeas estar en Guatemala?">How many weeks do you plan on being in Guatemala?</label>
+        <input type="number" id="number" name="timeincountry" title="Please only enter a whole number between 1 & 52." placeholder="Number of Weeks (whole numbers)" min="1" max="52">
+        <p title="Si desea asistencia con el transporte o el alojamiento, indíquelo y nos pondremos en contacto con usted para analizar sus necesidades específicas.">If would you like assistance with transportation or accommodations please indicate below and we will contact you to discuss your specific needs.</p>
+        <input type="checkbox" name="transportation" id="transportationneeded" value="transportationneeded">
+        <label for="transportationneeded" title="Sí">Yes</label>
+        <input type="checkbox" name="transportation" id="notransportation" value="notransportation">
+        <label for="notransportation">No</label>
+        <p class="morespace" title="¿Le gustaría quedarse con una familia local durante su tiempo con Kamalbe?">Would you like to stay with a local family during your time with Kamalbe?</p>
+        <span class="note" title="Se le proporcionarán 3 comidas por día, 7 días a la semana por $ 60 USD.">You will be provided with 3 meals per day, 7 days per week for $60 USD.</span>
+        <br><br>
+        <input type="checkbox" name="homestay" id="homestayyes" value="homestayyes" onclick="ShowHideDiv(this)">
+        <label for="homestayyes" title="Sí">Yes</label>
+        <input type="checkbox" name="homestay" id="homestayno" value="homestayno">
+        <label for="homestayno">No</label>
+        <div id="specialneeds">
+          <p class="morespace" title="Si tiene necesidades especiales o restricciones alimentarias, indíquelas a continuación.">If you have any special needs or food restrictions please list them below.</p>
+          <input type="text" name="specialneeds" placeholder="N/A">
+        </div>
+      </div>
+      <!--I might delete this or add an alert within the section to show this.
+      "Would you like to bring a small donation (a few toothbrushes, bars of soap, toothpaste etc) for the children in the village of Xecanchavox?"-->
+    </fieldset>
+
+    <fieldset>
+      <legend title="Información del Contacto">Contact Information:</legend>
+      <section class="contact">
+        <label for="tel" title="Número de teléfono incluso de el codigo de su pais.">Telephone:</label>
+        <input type="tel" id="tel" placeholder="Please include your country code with your phone number">
+        <label for="email" id="email-label" title="Correo electrónico">E-mail:</label>
+        <input type="email" id="email" placeholder="E-mail Address" required>
+        <p title="¿Método de contacto preferido?">Preferred method of contact?</p>
+        <input type="checkbox" name="contactmethod" id="contact-tel" value="call">
+        <label for="contact-tel-1" title="Llámame">Call Me</label>
+        <input type="checkbox" name="contactmethod" id="contact-tel-2" value="text">
+        <label for="contact-tel-2" title="Escríbeme">Text Me</label>
+        <input type="checkbox" name="contactmethod" id="emailme" value="email">
+        <label for="contact-email" title="correo electrónico">E-mail</label>
+        <span class="textseparator econtact" title="Contacto de emergencia">Emergency Contact</span>
+        <p title="Por favor incluya el nombre y apellido de su contacto de emergencia, su relación con usted, país, número de teléfono y dirección de correo electrónico.">Please include your emergency contact's first and last name, relationship to you, country, telephone number and email address.</p>
+        <textarea name="emergencycontact" id="emergencycontactdetails" placeholder="Emergency Contact Details"></textarea>
+      </section>
+    </fieldset>
+
+
+    <section id="referrals">
+      <h2 title="Información Referencial">Referral Information</h2>
+      <p title="¿Cómo se enteró de Centro de Voluntarido y Kamalbe Escuela de Español?">How did you learn about Kamalbe Spanish School and Volunteer Center?</p>
+      <input type="checkbox" id="google" name="referral" value="google">
+      <label for="google">Google</label>
+      <input type="checkbox" id="website" name="referral" value="website">
+      <label for="website" title="Sitio web de Kamalbe">Kamalbe's Website</label>
+      <input type="checkbox" id="facebook" name="referral" value="facebook">
+      <label for="facebook">Facebook</label>
+      <input type="checkbox" id="flyer" name="referral" value="flyer">
+      <label for="flyer" title="Volante">Flyer</label>
+      <input type="checkbox" id="friend" name="referral" value="friend">
+      <label for="friend" title="amigo">Friend</label>
+      <input type="checkbox" value="other">
+      <label for="other" title="Otro, por favor especifique a continuación.">Other, please specify below.
+        <input type="text" id="other" name="referral" value="N/A"></label>
+    </section>
+
+    <section id="students">
+      <h2 title="Información de Clase">Class Information</h2>
+      <p><label for="classstartdate" title="Seleccione su fecha de inicio anticipada:">Please select your anticipated start date:</label>
+        <input type="date" id="classstartdate" name="classstartdate"></p>
+      <label for="studentweeks" title="¿Cuántas semanas planeas estudiar con Kamalbe?">How many weeks do you plan on studying with Kamalbe?</label>
+      <input type="number" name="studentweeks" id="studentweeks" placeholder="Number of Weeks (whole numbers)" min="1">
+      <p title="Indique la cantidad de horas de instrucción que le gustaría cada semana:">Please indiciate the the number of hours of instruction you would like each week:</p>
+      <select name="hours" size="4" title="Básico (1-15 horas) | Estandar (15 - 25 horas) | Integral (25 - 40 horas)">
+        <optgroup label="Basic">
+          <option>1 - 5 hours</option>
+          <option>5 - 10 hours</option>
+          <option>10 - 15 hours</option>
+        </optgroup>
+        <optgroup label="Standard">
+          <option>15-20 hours</option>
+          <option>20-25 hours</option>
+        </optgroup>
+        <optgroup label="Comprehensive">
+          <option>25 - 30 hours</option>
+          <option>30 - 35 hours</option>
+          <option>35 - 40 hours</option>
+        </optgroup>
+      </select>
+      <p title="¿Cuál es su entorno de clase preferido?">What is your preferred classroom setting?</p>
+      <input type="checkbox" name="classlocation" id="school" value="school">
+      <label for="school" title="En Persona">In Person</label>
+      <input type="checkbox" name="classlocation" id="online" value="online">
+      <label for="online" title="En Linea">Online</label>
+      <p class="morespace" title="¿A qué hora del día preferirías tomar sus clases?">What time of day would you prefer to take your lessons?</p>
+      <input type="checkbox" name="classtime" id="AM" value="AM">
+      <label for="AM" title="La Mañana">Morning</label>
+      <input type="checkbox" name="classtime" id="PM" value="PM">
+      <label for="PM" title="La Tarde">Afternoon</label>
+      <input type="checkbox" name="classtime" id="nopreference" value="nopreference">
+      <label for="nopreference" title="No Preferncia">No Preference</label>
+      <p class="morespace" title="¿Qué idioma le gustaría aprender?">Which language would you like to learn?</p>
+      <input type="checkbox" name="language" id="kiche" value="kiche">
+      <label for="kiche">K'iche'</label>
+      <input type="checkbox" name="language" id="spanish" value="spanish" onclick="ShowHideArticle(this)">
+      <label for="spanish" title="Español">Spanish</label>
+      <article id="typeofspanish">
+        <p class="morespace" title="¿Qué tipo de programa de español le gustaría estudiar?">Which type of Spanish program would you like to study?</p>
+        <input type="radio" id="general" value="general" name="focus">
+        <label for="general">General</label>
+        <input type="radio" id="travel" value="travel" name="focus">
+        <label for="travel" title="Español de Viajes">Travel</label>
+        <input type="radio" id="law" value="law" name="focus">
+        <label for="law" title="Español de la Ley">Law</label>
+        <input type="radio" id="medical" value="medical" name="focus">
+        <label for="medical" title="Español Medico">Medical</label>
+      </article>
+      <p class="morespace"><label for="currentlevel" title="¿Cómo describirías el nivel de tu habilidad lingüística actual?">How would you describe the level of your current language ability?</label></p>
+      <input type="text" list="dropdown" id="currentlevel" placeholder="-Select your level-">
+      <!--will delete for real form-->
+      <datalist id="dropdown" multiple>
+        <option value="No Experience (Sin Experiencia)">
+        <option value="Introductory (Básico)">
+        <option value="Beginner (Principiante)">
+        <option value="Intermediate (Intermedio)">
+        <option value="Advanced (Avanzado)">
+        <option value="Not Sure (No Sé)">
+      </datalist>
+      <p title="Indique su nivel de competencia en las siguientes áreas por seleccionando la respuesta más adecuada.">Please indicate your level of proficiency in the following areas by selecting the most appropriate answer.</p>
+      <table>
+        <thead>
+          <tr>
+            <th title="Competencia del Idioma">Language Proficiency</th>
+            <th title="Ninguno">None</th>
+            <th title="Bajo">Low</th>
+            <th title="Moderar">Moderate</label></th>
+            <th title="Alto">High</th>
+          </tr>
+          <thead>
+            <tr>
+              <td title="Lectura">Reading</td>
+              <td><input type="radio" id="none1" value="readingnone"name="reading"></td>
+              <td><input type="radio" id="low1" value="readinglow" name="reading"> </td>
+              <td><input type="radio" id="moderate1" value="readingmoderate" name="reading"></td>
+              <td><input type="radio" id="high1" value="readinghigh" name="reading"> </td>
+            </tr>
+            <tr>
+              <td title="Escritura">Writing</td>
+              <td><input type="radio" id="none2" value="writingnone" name="writing"></td>
+              <td><input type="radio" id="low2" value="writinglow" name="writing"> </td>
+              <td><input type="radio" id="moderate2" value="writingmoderate" name="writing"></td>
+              <td><input type="radio" id="high2" value="writinghigh" name="writing"> </td>
+            </tr>
+            <tr>
+              <td title="Escucha">Listening</td>
+              <td><input type="radio" id="most3" value="listeningnone" name="listening"></td>
+              <td><input type="radio" id="low3" value="listeninglow" name="listening"> </td>
+              <td><input type="radio" id="moderate3" value="listeningmoderate" name="listening"></td>
+              <td><input type="radio" id="high3" value="listeninghigh" name="listening"> </td>
+            </tr>
+            <tr>
+              <td title="Habla">Speaking</td>
+              <td><input type="radio" id="most4" value="speakingnone" name="speaking"></td>
+              <td><input type="radio" id="low4" value="speakinglow" name="speaking"> </td>
+              <td><input type="radio" id="moderate4" value="speakingmoderate" name="speaking"></td>
+              <td><input type="radio" id="high4" value="speakinghigh" name="speaking"> </td>
+            </tr>
+      </table>
+      <p title="En Kamalbe, el Club de Té y Café Club puede disfrutar de té y café de alta calidad durante los descansos.">At Kamalbe the Tea and Coffee Club can enjoy high quality tea and coffee during breaks.</p>
+      <span class="note" title="Hay un costo adicional de $ 20 GTQ.">There is an addiitonal cost of $20 GTQ.</span>
+      <p id="teaclub" title="Por favor marque la casilla si está interesado.">Please check the box if you are interested.
+        <input type="checkbox" name="drinks" id="drinks" value="drinks"></p>
+    </section>
+
+    <section id="volunteers">
+      <h2 title="Informacion de Voluntariado">Volunteer Information</h2>
+      <p><label for="volunteerstartdate" title="Seleccione su fecha de inicio anticipada:">Please select your anticipated start date:</label>
+        <input type="date" id="volunteerstartdate" name="volunteerstartdate"></p>
+      <label for="volunteerweeks" title="¿Cuántas semanas planeas ser voluntario con Kamalbe?">How many weeks do you plan on volunteering with Kamalbe?</label>
+      <input type="number" id="volunteerweeks" name="hours" id="volunteerweeks" placeholder="Number of Weeks (whole numbers)" min="1">
+      <label for="interests" title="¿En qué áreas de trabajo voluntario está interesado?">What areas of volunteer work are you interested in?
+        <input type="text" id="interests" name="interests" value="N/A"></label>
+      <label for="experience" title="Describa brevemente sus habilidades, capacitación y experiencias que aportará a su trabajo voluntario con Kamalbe.">Please briefly describe the skills, training and/or experiences will you bring to your volunteer work with Kamalbe.</label>
+      <textarea name="experience" placeholder="Please be concise"></textarea>
+    </section>
+
+    <div class="last">
+      <p class="morespace" title="Si hay algo que le gustaría agregar, utilice el espacio a continuación.">If there is anything you would like to add please utilize the space below.</p>
+      <textarea id="comments" name="comments" placeholder="Additional Comments..."></textarea>
+
+      <input type="submit" value="Submit" title="Enviar" id="submit" onclick="DisplayMsg()">
+    </div>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Lato&family=Open+Sans&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --formwidth: 300px;
+  --questionspacing: 8px;
+  --headings: 'Anton', cursive;
+  --body: 'Lato', sans-serif;
+  --otherfont: 'Open Sans', sans-serif;
+  --dark: #1F3044;
+}
+
+h1 {
+  font-family: var(--headings);
+  font-size: 46px;
+  color: #000;
+  text-shadow: 2px 2px 5px #253A4A;
+}
+
+body {
+  /*Zunil church*/
+  background-image: url("https://drscdn.500px.org/photo/237803079/q%3D80_m%3D1500/v2?sig=03307d29989159902bf54b44e571a19b2c5e3c0b2e9fa23c572b07a6372e7be1");
+  background-repeat: repeat;
+  background-size: cover;
+  font-family: var(--body);
+  font-size: 15px;
+  margin-top: 30px;
+  margin-bottom: 90px;
+}
+
+/*Will hide homestay special needs, type of Spanish and volunteer questions when page is first opened*/
+#arrivalinfo, #specialneeds, #typeofspanish, #volunteers {
+  display: none;
+}
+
+header {
+  width: var(--formwidth);
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+}
+
+#description {
+  display: flex;
+  padding: 20px 0px;
+  width: 85%;
+  margin: inherit;
+  color: #eee;
+  text-shadow: 2px 2px 6px #000;
+}
+
+#survey-form {
+  border: 2px solid black;
+  border-radius: 15px;
+  width: var(--formwidth);
+  margin: auto;
+  position: relative;
+  background-color: #77A4AE;
+  opacity: .96;
+}
+
+.nota {
+  width: 62.5%;
+  font-size: 13px;
+  font-style: italic;
+  margin: 15px auto 0px;
+  display: flex;
+  text-align: center;
+}
+
+legend {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.biographical, .contact {
+  padding: 5px 5px 8px;
+}
+
+#arrivalinfo {
+  padding: 0px 5px 8px;
+}
+
+[type="text"], [type="tel"], [type="email"], [type="number"], [type="date"] {
+  width: 100%;
+  margin-bottom: var(--questionspacing);
+  margin-top: 2px;
+}
+
+[type="date"]+label {
+  display: block;
+}
+
+.touristcheck, textarea, .morespace {
+  margin-top: var(--questionspacing);
+}
+
+[type="checkbox"]+label {
+  margin-bottom: var(--questionspacing);
+}
+
+[placeholder], #other, #interests {
+  text-indent: 5px;
+}
+
+[type="text"], [type="tel"], [type="email"], [type="date"], [type="number"], [type="submit"], textarea, fieldset, select {
+  border-radius: 4px;
+  border: 1px solid #253A4A;
+}
+
+[type="date"] {
+  text-indent: 2px;
+}
+
+[type="text"], [type="tel"], [type="email"], [type="date"], [type="number"], [type="submit"], textarea {
+  height: 24px;
+  font-family: var(--otherfont);
+  color: grey;
+}
+
+select {font-family: var(--otherfont);}
+
+/*To add vertical lines with text in the middle*/
+.textseparator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--questionspacing);
+}
+
+.textseparator::before, .textseparator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #000;
+}
+
+/*formats notes throughout site*/
+.note {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.note::before {
+  font-weight: bold;
+  content: "NOTE: ";
+}
+
+h2 {
+  background-color: var(--dark);
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: none;
+  height: 70px;
+  width: 100%;
+}
+
+#emergencycontactdetails {
+  width: 98%;
+  margin: auto;
+  display: flex;
+}
+
+fieldset, #referrals, #students, #volunteers, .last {
+  margin: 15px 20px;
+}
+
+[type="text"]#other {
+  margin-bottom: 2px;
+}
+
+h2+p {
+  margin-top: var(--questionspacing);
+}
+
+[type="checkbox"]+label::before {
+  content: " ";
+}
+
+/*Styling for Language Proficiency table*/
+th+th, td+td {
+  text-align: center;
+  justify-content: center;
+}
+
+th {
+  text-align: left;
+  background: #bbb;
+  text-transform: capitalize;
+  width: 15em;
+}
+
+td, th {
+  padding: 2px;
+}
+
+tr:nth-child(2n) td {
+  background: #eee;
+}
+
+tr:nth-of-type(odd) td {
+  background: #ddd;
+}
+
+table, select, #dropdown, #currentlevel, .econtact, #teaclub, label {
+  margin: var(--questionspacing) 0px;
+}
+
+[type="submit"] {
+  width: 50%;
+  height: 30px;
+  margin: 20px auto 10px;
+  display: flex;
+  justify-content: center;
+  color: #FFF;
+  background-color: var(--dark);
+  cursor: pointer;
+}
+
+[type="submit"]:hover {background-color: #253A4A;}
+
+[type="submit"]:active {
+  background-color: #253A4A;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+/*for ipads*/
+@media (min-width: 768px) {
+  * {--formwidth: 675px;font-size: 105%;}
+  body {background-image: url("https://live.staticflickr.com/4810/32360066628_96e1afa964_h.jpg"); margin-bottom: 100px;}
+  #description {width: 85%;font-size: 35px;color: #B6CFDC;text-shadow: 2px 2px 2px #000;margin-bottom: 16px;}
+  .nota {width:auto; justify-content: center;font-size: 16px;margin-top: 25px;}
+  select {width: 100%;}
+  textarea {height: 110px;}
+  [type="text"], [type="tel"], [type="email"], [type="date"], [type="number"], [type="submit"] {height: 30px;}
+  [type="submit"] {width: 75%;margin: 20px auto 40px;height:40px;}
+  label + span {display:block;}
+  h1 {font-size: 75px;text-shadow: 2px 2px 5px #B6CFDC;}
+  h2 {font-size: 30px;}
+  legend {font-size:20px;}
+  [type="radio"], [type="checkbox"] {font-size: 105%;}
+  .biographical, .contact {padding: 5px 25px 8px;}
+  #arrivalinfo {padding: 0px 25px 8px;}
+  #emergencycontactdetails {width: 100%;}
+}
+
+/*for desktops*/
+@media (min-width: 900px) {
+  * {--formwidth: 875px;font-size: 105%;}
+  body {background-image: url("https://live.staticflickr.com/4810/32360066628_96e1afa964_h.jpg"); margin-bottom: 100px;}
+  #description {width: 85%;font-size: 35px;color: #B6CFDC;text-shadow: 2px 2px 2px #000;margin-bottom: 16px;}
+  .nota {width:auto; justify-content: center;font-size: 16px;margin-top: 25px;}
+  select {width: 100%;}
+  textarea {height: 110px;}
+  [type="text"], [type="tel"], [type="email"], [type="date"], [type="number"], [type="submit"] {height: 30px;}
+  [type="submit"] {width: 75%;margin: 20px auto 40px;height:40px;}
+  label + span {display:block;}
+  h1 {font-size: 75px;text-shadow: 2px 2px 5px #B6CFDC;}
+  h2 {font-size: 30px;}
+  legend {font-size:20px;}
+  [type="radio"], [type="checkbox"] {font-size: 105%;}
+  .biographical, .contact {padding: 5px 25px 8px;}
+  #arrivalinfo {padding: 0px 25px 8px;}
+  #emergencycontactdetails {width: 100%;}
+}
